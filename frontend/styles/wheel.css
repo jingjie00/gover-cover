@@ -1,0 +1,227 @@
+  .spin-width-2 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+  } 
+
+  @media (min-width: 768px){
+    .spin-width {
+      width: 700px;
+    } 
+  }
+
+  @media (min-width: 1000px){
+    .grid-wheel-spin {
+      display: flex;
+    }
+    .spin-width-2 {
+      position: absolute;
+      top: 40%;
+      transform: translate(0, -50%);
+      right: 0;
+      z-index: 4;
+      min-width: 200px;
+    } 
+  }
+  @media (min-width: 1100px){
+    .grid-wheel-spin {
+      display: flex;
+    }
+    .spin-width-2 {
+      position: relative;
+      margin-top: 13rem;
+    } 
+  }
+
+  .wheel-spin-deposit {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 8px;
+    margin-bottom: 22px;
+  }
+  
+  .wheel-spin-deposit input {
+    width: 60%;
+    background: #8B8B8B;
+    border-radius: 100px 0px 0px 100px;
+    padding: 10px 24px;
+  }
+
+  .wheel-spin-deposit button {
+    width: 35%;
+    background: linear-gradient(180deg, #FDEC97 0%, #B57E10 100%);
+    border-radius: 0px 100px 100px 0px;
+    padding: 10px 4px;
+  }
+  .wheel-spin-deposit button span {
+    font-size: 14px;
+    font-weight: 400;
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3),
+  }
+
+  .spin-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .spin-count span {
+    background: #DBAB00;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 20px;
+    color: black;
+    padding: 6px 20px;
+    margin: 0 10px;
+  }
+
+  #freespin-result {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 200px;
+    height: 50px;
+    z-index: 2;
+    display: block;
+    position: relative;
+    margin: 60px auto 20px auto;
+    /* border: 1px solid black; */
+    /* border-radius: 20px;  */
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+  }
+  
+  #freespin-marker {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 3;
+    width: 4.3%;
+    top: 21%;
+  }
+  @media (min-width: 768px){
+    #freespin-marker {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 3;
+      width: 31px;
+      top: 21.4%;
+    }
+  }
+
+  #gross-effect {
+    z-index: -1;
+    width: 880px;
+    position: absolute;
+    left: 17%;
+    top: -11%;
+  }
+
+  #freespin-wheel-outer {
+    position: relative;
+    display: block;
+    z-index: 2;
+    margin: auto;
+    /* position: absolute; */
+    left: 50%;
+    transform: translate(-50.3%, 0px);
+    top: 0;
+  }
+
+  #freespin-spin-button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 3;
+    cursor: pointer;
+    width: 20%;
+    top: 36.2%;
+  }
+  @media (min-width: 443px){
+    #freespin-spin-button {
+      top: 37.2%;
+    }
+  }
+  @media (min-width: 768px){
+    #freespin-spin-button {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 3;
+      cursor: pointer;
+      width: 143px;
+      top: 37.3%;
+    }
+  }
+
+  #freespin-wheel {
+    position: absolute;
+    z-index: 2;
+    /* margin-top: 188px; */
+    top: 22.8%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 51%;
+  }
+  @media (min-width: 768px){
+    #freespin-wheel {
+      position: absolute;
+      z-index: 2;
+      /* margin-top: 188px; */
+      top: 23.1%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 356px;
+    }
+  }
+
+  .second-row-spin {
+    margin-top: 5rem;
+  }
+  @media (min-width: 1000px){
+    .second-row-spin {
+      margin-top: -2rem;
+    }
+  }
+  
+  /* #freespin-spin-button {
+    display: block;
+    width: 250px;
+    margin: 40px auto 0 auto;
+    cursor: pointer;
+  } */
+  
+  #freespin-spin-button:hover {
+    opacity: 0.8;
+  }
+  
+  /* .blur {
+    animation: blur 10s;
+  }
+  
+  @keyframes blur {
+    0% {
+      filter: blur(1.5px);
+    }
+    80% {
+      filter: blur(1.5px);
+    }
+    100% {
+      filter: blur(0px);
+    }
+  } */
+  

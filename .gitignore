@@ -1,0 +1,6 @@
+# prevent node modules folder
+node_modules/
+# prevent build folder
+build/
+# prevent .env file
+.env

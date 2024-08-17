@@ -1,0 +1,126 @@
+.react-chatbot-kit-chat-container {
+  width: 100%;
+  height: 100%;
+}
+
+.react-chatbot-kit-chat-input {
+  color: black;
+}
+
+.react-chatbot-kit-chat-inner-container {
+  height: inherit;
+}
+
+.react-chatbot-kit-chat-header,
+.react-chatbot-kit-chat-input-container {
+  height: 3rem;
+}
+
+.react-chatbot-kit-chat-message-container {
+  height: calc(100% - 6rem);
+  overflow: unset;
+  overflow-y: scroll;
+}
+
+.react-chatbot-kit-chat-bot-message {  
+  width: 80%;
+  background: linear-gradient(144deg, rgba(8,207,3,1) 0%, rgba(0,255,205,1) 98%, #7bd759 100%);
+  word-wrap: break-word;
+  color: black;
+}
+
+.react-chatbot-kit-chat-bot-message-arrow {
+  border-right: 8px solid #7bd759;
+}
+
+.react-chatbot-kit-user-chat-message-arrow {
+  border-left: 8px solid #cdcdcd;
+}
+
+.react-chatbot-kit-user-chat-message {
+  max-width: 70%;
+  color: black;
+  background: linear-gradient(144deg,#cdcdcd 0%, #ffffff 2%, #d4d4d4 40%, #cdcdcd 100%);
+  word-wrap: break-word;
+}
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  height: 250px; /* Adjust the height as needed */
+}
+
+.marquee-content {
+  display: flex;
+  flex-direction: column;
+  animation: scroll 40s linear infinite;
+}
+
+.marquee-content > * {
+  flex-shrink: 0;
+}
+
+.marquee-content.clone {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* Pause animation on hover */
+.marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+
+._1vfIh {
+  position: absolute;
+ display: flex;
+ justify-content: space-between;
+}
+
+
+._1vfIh > span> button[aria-label="start-speech"] {
+  padding-left: 1rem;
+  padding-right: 2rem;
+  margin-right: 2rem;
+}
+
+._1vfIh > span> button[aria-label="stop-speech"] {
+  padding-left: 1rem;
+  padding-right: 2rem;
+  margin-right: 2rem;
+}
+
+._1vfIh > button[aria-label="stop-listening"] {
+  padding-left: 1rem;
+  padding-right: 2rem;
+  margin-left:4rem;
+}
+
+._1vfIh > span>button[aria-label="start-listening"] {
+  padding-left: 1rem;
+  padding-right: 2rem;
+  margin-left:3rem;
+}
+
+._ITael {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  border: 1px solid #c4c4c4;
+  clear: both;
+  overflow: hidden;
+  padding: 5px;
+  margin: 20px;
+  border-radius: 10px; /* Adjust this value for more/less rounding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust shadow as needed */
+}
