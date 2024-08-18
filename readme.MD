@@ -1,6 +1,6 @@
 # **Gover** - Government-Verified Coverage for All Citizens
 
-In Malaysia, there is a growing concern that some low-income B40 households might be misusing government resources. Current incentive platforms are often slow and lack transparency, making it difficult to ensure that aid reaches the intended recipients. **GoVer** addresses these issues by introducing an AI-powered blockchain platform. By integrating **Aptos blockchain technology** with a **Large Language Model (LLM) chatbot**, we create a user-friendly experience that simplifies web3 for all Malaysians. Our platform ensures transparency and accountability while maintaining a clean and accessible interface, even for those with minimal web3 knowledge.
+ **GoVer** addresses introducing an AI-powered blockchain incentive platform. By integrating **Aptos blockchain technology** with a **Large Language Model (LLM) chatbot**, we create a user-friendly experience that simplifies web3 for all Malaysians. Our platform ensures transparency and accountability while maintaining a clean and accessible interface, even for those with minimal web3 knowledge.
 
 ## Key Features
 - **Blockchain Integration:** Ensures transparency, immutability, and verifiability of all transactions.
