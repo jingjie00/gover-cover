@@ -185,15 +185,12 @@ if(transactionHash && moneyHash){
     }
     if (message.data.toLowerCase().includes('yes')) {
 
+   
+        sendTransaction(setTransactionHash)
+        handleTransaction(setMoneyHash)
 
-
-      const [sendTransactionHash, handleTransactionHash] = await Promise.all([
-        sendTransaction(setTransactionHash),
-        handleTransaction(setMoneyHash),
-      ]).then(()=>{
-        sendEmail(sendTransactionHash, handleTransactionHash);
+        await delay(3000);
         return { text: 'Your funds will be received in your bank within one day.' };
-      });
   
       // After both transactions are successful, you can call a third function (if needed) with their results
      

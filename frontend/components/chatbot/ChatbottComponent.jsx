@@ -30,7 +30,7 @@ const Chatbot = () => {
 
     try {
       // Make the API call to the backend
-      const response = await axios.post('https://oushmfoeoipomvcdirjg.execute-api.us-east-1.amazonaws.com/prod/govercoverAI', {
+      const response = await axios.post('https://oushmfoeoipomvcdirjg.execute-api.us-east-1.amazonaws.com/govercoverAI', {
         message: inputText,
       });
 

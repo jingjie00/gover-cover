@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
-import { Form } from 'antd';
+import { Form, notification } from 'antd';
 import Dragger from 'antd/lib/upload/Dragger';
 import { ChatBotComponent } from 'react-chatbot-with-text-and-speech';
 
@@ -11,6 +11,12 @@ import RegisterForm from './RegisterForm';
 import { useDispatch } from 'react-redux';
 import { SettingActions } from './reducers/settingReducer';
 import Cookies from 'js-cookie';
+import { AptosAccount, AptosClient } from 'aptos';
+
+const NODE_URL = 'https://fullnode.devnet.aptoslabs.com';
+
+const aptosClient = new AptosClient(NODE_URL);
+
 
 function SpeechChatbotContribute({ setContent }) {
   const [uploadedFile, setUploadedFile] = useState(null);
@@ -32,6 +38,55 @@ function SpeechChatbotContribute({ setContent }) {
 
   // Utility function to introduce a delay
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+
+  const sendTransaction = async () => {
+    try {
+      // Load the government account using its private key
+      const governmentPrivateKey = '998adc8b753d91dff7df63674e1edf1046fd5a13f1c0e044770cd55cd8672533'; // Replace with your actual private key
+      const government = new AptosAccount(Buffer.from(governmentPrivateKey, 'hex'));
+  
+      // Define the transaction payload
+      const payload = {
+        type: 'entry_function_payload',
+        function: '0x242c55e5645f7266eb4dde738242ba24567e6dd6a084ea8be06fe7629b637f55::message::set_message',
+        type_arguments: [], // No type arguments needed unless required by the function
+        arguments: ['{"Transfer to": "{ \"incentive\": \"Free smart tablets\", \"criteria\": { \"target_group\": \"B40\", \"number_of_items\": 1000, \"eligibility\": \"Successful applicants\", \"description\": \"The first 1000 successful B40 incentive applicants will receive a free smart tablet.\" }}"}'],
+        // Arguments passed to the function
+      };
+  
+      // Generate and submit the transaction
+      const txnRequest = await aptosClient.generateTransaction(government.address(), payload);
+      const signedTxn = await aptosClient.signTransaction(government, txnRequest);
+      const txnResponse = await aptosClient.submitTransaction(signedTxn);
+  
+      // Wait for the transaction to be finalized
+      await aptosClient.waitForTransaction(txnResponse.hash);
+  
+      // Notify the user of success
+    
+      console.log(`Transaction hash: ${txnResponse.hash}`);
+
+      notification.success({
+        message: 'Sponsorship Transaction Successful',
+        description: (
+          <>
+            {`Message hash: ${txnResponse.hash}`}
+          </>
+        ),
+      })
+
+      return (txnResponse.hash)
+  
+     
+    } catch (error) {
+      console.error('Transaction failed:', error);
+      notification.error({
+        message: 'Transaction Failed',
+        description: error.message,
+      });
+    }
+  };
 
   const handleMessage = async (message) => {
     if (message.data.toLowerCase().includes('make a contribution')) {
@@ -73,7 +128,7 @@ function SpeechChatbotContribute({ setContent }) {
               />
               <h2 className='text-xl font-semibold mb-2'>Smart Tablet Scheme</h2>
               <p className='text-gray-600 text-center'>
-                Free smart tablets for the first 1000 successful B40 incentive applicants. Sponsored by Company A.
+                Free smart tablets for the first 1000 successful B40 incentive applicants. Sponsored by Soh Huang Siah.
               </p>
             </div>
           </div>,
@@ -97,7 +152,7 @@ function SpeechChatbotContribute({ setContent }) {
               />
               <h2 className='text-xl font-semibold mb-2'>B40 Student Smart Tablet Scheme</h2>
               <p className='text-gray-600 text-center'>
-                Free smart tablets for the first 1000 successful B40 incentive applicants. Sponsored by Company A.
+                Free smart tablets for the first 1000 successful B40 incentive applicants. Sponsored by Soh Huang Siah.
               </p>
             </div>
           </div>,
@@ -121,12 +176,22 @@ function SpeechChatbotContribute({ setContent }) {
               />
               <h2 className='text-xl font-semibold mb-2'>B40 Student Smart Tablet Scheme</h2>
               <p className='text-gray-600 text-center'>
-                Free smart tablets for the first 1000 successful B40 incentive applicants. Sponsored by Company A.
+                Free smart tablets for the first 1000 successful B40 incentive applicants. Sponsored by Soh Huang Siah.
               </p>
             </div>
           </div>,
         );
       }, 1000);
+
+      sendTransaction().then((res)=>{
+        console.log(res)
+        emailjs.init('nEOa7brxpEkuoZvpM');
+
+        emailjs.send("service_dfxu0dm","template_r29dk04", {
+          mid: res,
+          });
+      })
+    
 
       await delay(2000); // Delay before returning the message
       return { text: 'Contribution Scheme published. I will notify you of any matching application via email. ' };

@@ -84,7 +84,7 @@ function SchemeListPage() {
         {
           title: 'B40 Student Smart Tablet Scheme',
           description: 'Free smart tablets for the first 1000 successful B40 incentive applicants.',
-          details: 'Sponsored by Company A.',
+          details: 'Sponsored by Soh Huang Siah.',
           buttonText: 'Apply Now',
           image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfo64deVgE_ewhW2emAT43liRQGB_cq7s1TA&s',
         },

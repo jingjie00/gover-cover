@@ -28,7 +28,7 @@ function SpeechChatbot({ setContent }) {
   const handleMessage = async (message) => {
     console.log(message.data);
 
-    if (message.data.toLowerCase().includes('how do i register')) {
+    if (message.data.toLowerCase().includes('register')) {
       await navigator.clipboard.writeText('Done uploading.');
       setTimeout(() => {
         setContent(
@@ -48,12 +48,12 @@ function SpeechChatbot({ setContent }) {
       }, 2000);
 
       await delay(1000); // Add a 2-second delay before returning
-      return { text: 'I have extracted your personal information. Please fill in your email and phone number.' };
+      return { text: 'I have extracted your personal information.' };
     }
     if (message.data.toLowerCase().includes('please proceed')) {
-      emailjs.init('nEOa7brxpEkuoZvpM');
+     // emailjs.init('nEOa7brxpEkuoZvpM');
 
-      emailjs.send('service_dfxu0dm', 'template_r29dk04');
+     // emailjs.send('service_dfxu0dm', 'template_r29dk04');
 
       setTimeout(() => {
         setContent(
@@ -65,7 +65,7 @@ function SpeechChatbot({ setContent }) {
       }, 1000);
 
       await delay(1000); // Add a 2-second delay before returning
-      return { text: 'Your personal information are now under review. Please check your email for confirmation.' };
+      return { text: 'Your personal information are now under review. ' };
     }
 
     await delay(1000); // Add a 2-second delay before returning
