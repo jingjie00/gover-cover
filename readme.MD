@@ -9,8 +9,16 @@ In Malaysia, there is a growing concern that some low-income B40 households migh
 - **Third-Party Collaboration:** Open platform for everyone to contribute. SME businesses, NGOs, and individuals can participate by offering additional services, incentives, or products to users. This collaboration enriches the user experience and adds value to the incentives offered by the government.
 - **User-Friendly Interface:** Designed to be intuitive and accessible to all Malaysians, including those with little to no experience with blockchain or web3.
 
-## Smart Contracts, Address, and Example Transaction
+## Links
+- [GitHub Repository](https://github.com/jingjie00/gover-cover)
+- [Web Application](https://gover-cover.web.app/)
 
+## Project Resources
+- **Pitch Video:** [YouTube](https://youtu.be/j8LZ5ipd6gQ)
+- **Pitch Deck:** [PDF](https://github.com/jingjie00/gover-cover/blob/main/pitch/PitchSlide.pdf)
+
+
+## Smart Contracts, Address, and Example Transaction
 - Transaction Hash: [**0x425e23802282cc1c42662caf094f210059869b5246ca31a84c54f09d83e512e2**](https://explorer.aptoslabs.com/txn/0x425e23802282cc1c42662caf094f210059869b5246ca31a84c54f09d83e512e2?network=devnet)
 - Message Hash: [**0x99b51777825acd711bbe0a203f6c4e5b0ac24dadd303763627adccba2279a83a**](https://explorer.aptoslabs.com/txn/{{mid}}?network=devnet)
 - Government Address: [**0x762870eccdfad66e6a2121fde8488bb9d5a65e34edef5fadf829db2bd9168bfe**](https://explorer.aptoslabs.com/object/0x762870eccdfad66e6a2121fde8488bb9d5a65e34edef5fadf829db2bd9168bfe?network=devnet)
