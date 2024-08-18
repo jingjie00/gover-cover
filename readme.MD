@@ -26,6 +26,8 @@ The integration of AI with blockchain technology helps to streamline the approva
 To prevent the misuse of incentives, the platform ties the disbursement of funds to specific purposes. For example, B40 students who receive online course incentives will be required to use the funds only for approved educational expenses. The blockchain provides a clear, auditable trail of how the funds are used, ensuring they go towards their intended purpose.
 
 ## Contribution to Sustainable Development Goals (SDGs)
+`moledao submission id: 20533fe5-7204-481a-bbf0-2b774d99145e`
+
 By addressing these challenges, **GoVer** contributes to several Sustainable Development Goals (SDGs):
 
 - **SDG 1: No Poverty** - Ensuring that incentives reach the right people and are used effectively helps reduce poverty levels.
