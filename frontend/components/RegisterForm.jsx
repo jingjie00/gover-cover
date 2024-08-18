@@ -7,8 +7,8 @@ const RegisterForm = () => {
 
   // Default values for the form
   const defaultValues = {
-    name: 'Jacynth Tham Ming Quan',
-    icNumber: '010625-14-0732',
+    name: 'Soh Huang Siah',
+    icNumber: '010625-78-9012',
     dob: moment('2001-06-25'), // DatePicker requires moment for default date
     address: '33, Jalan Desa 7/13a, Bandar Country Homes, 48000 Rawang',
     phoneNumber: '',

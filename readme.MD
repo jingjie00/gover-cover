@@ -9,7 +9,7 @@ In Malaysia, there is a growing concern that some low-income B40 households migh
 - **Third-Party Collaboration:** Open platform for everyone to contribute. SME businesses, NGOs, and individuals can participate by offering additional services, incentives, or products to users. This collaboration enriches the user experience and adds value to the incentives offered by the government.
 - **User-Friendly Interface:** Designed to be intuitive and accessible to all Malaysians, including those with little to no experience with blockchain or web3.
 
-## Example Web3 Platform
+## Smart Contracts, Address, and Example Transaction
 
 - Transaction Hash: [**0x425e23802282cc1c42662caf094f210059869b5246ca31a84c54f09d83e512e2**](https://explorer.aptoslabs.com/txn/0x425e23802282cc1c42662caf094f210059869b5246ca31a84c54f09d83e512e2?network=devnet)
 - Message Hash: [**0x99b51777825acd711bbe0a203f6c4e5b0ac24dadd303763627adccba2279a83a**](https://explorer.aptoslabs.com/txn/{{mid}}?network=devnet)
@@ -18,7 +18,7 @@ In Malaysia, there is a growing concern that some low-income B40 households migh
 
 
 
-## Example Transaction
+## User View
 An example of a transaction processed through the GoVer platform:
 ```
 Dear SOH HUANG SIAH,

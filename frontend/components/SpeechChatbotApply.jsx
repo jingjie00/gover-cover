@@ -1,17 +1,137 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
-import { Form } from 'antd';
+import { Form, notification } from 'antd';
 import Dragger from 'antd/lib/upload/Dragger';
 import { ChatBotComponent } from 'react-chatbot-with-text-and-speech';
 
-import FileUploadComponent from './FileUploadComponent';
-import RegisterForm from './RegisterForm';
 import emailjs from 'emailjs-com';
 import { useRouter } from 'next/router';
+import { AptosClient, AptosAccount, FaucetClient } from 'aptos';
+import RegisterForm from './RegisterForm';
+import FileUploadComponent from './FileUploadComponent';
 
+const NODE_URL = 'https://fullnode.devnet.aptoslabs.com';
+
+const aptosClient = new AptosClient(NODE_URL);
+
+const sendTransaction = async (setTransactionHash) => {
+  try {
+    // Load the government account using its private key
+    const governmentPrivateKey = '998adc8b753d91dff7df63674e1edf1046fd5a13f1c0e044770cd55cd8672533'; // Replace with your actual private key
+    const government = new AptosAccount(Buffer.from(governmentPrivateKey, 'hex'));
+
+    // Define the transaction payload
+    const payload = {
+      type: 'entry_function_payload',
+      function: '0x242c55e5645f7266eb4dde738242ba24567e6dd6a084ea8be06fe7629b637f55::message::set_message',
+      type_arguments: [], // No type arguments needed unless required by the function
+      arguments: [
+        '{"Transfer to": "Soh Huang Siah","Malaysian Identity Card Hash": "bab2455a57524929c19827240dfec07f","Program": "Online Course Incentive","Collab": "Apple Pencil Free Gift from Urban Republic", "Amount": "RM400.00"}',
+      ], // Arguments passed to the function
+    };
+
+    // Generate and submit the transaction
+    const txnRequest = await aptosClient.generateTransaction(government.address(), payload);
+    const signedTxn = await aptosClient.signTransaction(government, txnRequest);
+    const txnResponse = await aptosClient.submitTransaction(signedTxn);
+
+    // Wait for the transaction to be finalized
+    await aptosClient.waitForTransaction(txnResponse.hash);
+
+    // Notify the user of success
+  
+
+    setTransactionHash(txnResponse.hash)
+
+    console.log(`Transaction hash: ${txnResponse.hash}`);
+  } catch (error) {
+    console.error('Transaction failed:', error);
+    notification.error({
+      message: 'Transaction Failed',
+      description: error.message,
+    });
+  }
+};
+
+const handleTransaction = async (setMoneyHash) => {
+  const NODE_URL = 'https://fullnode.devnet.aptoslabs.com';
+  const FAUCET_URL = 'https://faucet.devnet.aptoslabs.com';
+
+  const amount = 400; // Amount to transfer
+
+  const governmentPrivateKey = 'b3d4a9e6c947728ab4ed1258c6a9f1a2a2c7816c1fe64dbad89e9f9cdb45b5a1'; // Replace with your own 32-byte hex seed
+  const bankAddress = '0xb1a9e5b77615658a7dd54fcfd509f698833e95ba86c20554bcacf8e6f4069cb2';
+
+  try {
+    // Initialize clients
+    const aptosClient = new AptosClient(NODE_URL);
+    const faucetClient = new FaucetClient(NODE_URL, FAUCET_URL);
+
+    // Load government account with the private key
+    const government = new AptosAccount(Buffer.from(governmentPrivateKey, 'hex'));
+
+    // Fund the government account if needed
+    await faucetClient.fundAccount(government.address(), 100_000_000); // Fund with 100 APT
+
+    // Prepare transaction payload for transferring coins
+    const payload = {
+      type: 'entry_function_payload',
+      function: '0x1::aptos_account::transfer',
+      type_arguments: [],
+      arguments: [
+        bankAddress, // Recipient address
+        amount, // Amount to transfer in Octas (1 APT = 10^8 Octas)
+      ],
+    };
+
+    // Generate, sign, and submit the transaction
+    const txnRequest = await aptosClient.generateTransaction(government.address(), payload);
+    const signedTxn = await aptosClient.signTransaction(government, txnRequest);
+    const transactionResponse = await aptosClient.submitTransaction(signedTxn);
+
+   
+
+    setMoneyHash(transactionResponse.hash);
+
+   
+  } catch (error) {
+    console.error('Transaction failed:', error);
+    notification.error({
+      message: 'Transaction Failed',
+      description: error.message,
+    });
+  }
+};
+
+function sendEmail (tid, mid){
+  emailjs.init('nEOa7brxpEkuoZvpM');
+
+  emailjs.send("service_dfxu0dm","template_v81ybnd",{
+    tid: tid,
+    mid: mid,
+    });
+  
+}
 function SpeechChatbotApply({ setContent }) {
   const [uploadedFile, setUploadedFile] = useState(null);
+const [transactionHash, setTransactionHash] = useState(null);
+const [moneyHash, setMoneyHash] = useState(null);
 
+useEffect(()=>{
+  console.log(transactionHash, moneyHash)
+if(transactionHash && moneyHash){
+  notification.success({
+    message: 'Transaction Successful',
+    description: (
+      <>
+        {`Transaction hash: ${transactionHash}`}<br />
+        {`Message hash: ${moneyHash}`}
+      </>
+    ),
+  });
+  sendEmail(transactionHash, moneyHash);
+}
+}, [transactionHash, moneyHash])
   const router = useRouter();
   const verifyUploadProps = {
     name: 'file',
@@ -30,9 +150,8 @@ function SpeechChatbotApply({ setContent }) {
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const handleMessage = async (message) => {
-
     if (message.data.toLowerCase().includes('online course')) {
-      await navigator.clipboard.writeText("Done uploading.");
+      await navigator.clipboard.writeText('Done uploading.');
       setTimeout(() => {
         setContent(
           <div><FileUploadComponent /></div>,
@@ -42,8 +161,8 @@ function SpeechChatbotApply({ setContent }) {
       await delay(2000); // Delay before returning the message
       return { text: 'I see that this is your first time requesting for this incentive. May I have your offer letter as proof?' };
     }
-    else if (message.data.toLowerCase().includes('done uploading')) {
-      await navigator.clipboard.writeText("Here is my receipt");
+    if (message.data.toLowerCase().includes('done uploading')) {
+      await navigator.clipboard.writeText('Here is my receipt');
 
       setTimeout(() => {
         setContent(
@@ -54,14 +173,30 @@ function SpeechChatbotApply({ setContent }) {
       await delay(2000); // Delay before returning the message
       return { text: 'I will also need a picture of your receipt of the amount that you want to claim to proceed.' };
     }
-    else if (message.data.toLowerCase().includes('receipt')) {
-      setContent(<div className="flex items-center align-center justify-center h-full"><img src="/images/loadingGif.gif"/></div>)
+    if (message.data.toLowerCase().includes('receipt')) {
+      await navigator.clipboard.writeText('Yes please.');
+      setContent(<div className='flex items-center align-center justify-center h-full'><img src='/images/loadingGif.gif' /></div>);
       setTimeout(() => {
-        setContent(<div className="flex items-center align-center justify-center h-full"><img src="/images/doneGif.gif"/></div>)
+        setContent(<div className='flex items-center align-center justify-center h-full'><img src='/images/doneGif.gif' /></div>);
       }, 4000);
 
       await delay(2000); // Delay before returning the message
-      return { text: 'Your eiligibility has been confirmed. Would you like to cash out to your usual bank account or a new bank account?' };
+      return { text: 'Your eiligibility has been confirmed. Would you like to cash out to your usual bank account?' };
+    }
+    if (message.data.toLowerCase().includes('yes')) {
+
+
+
+      const [sendTransactionHash, handleTransactionHash] = await Promise.all([
+        sendTransaction(setTransactionHash),
+        handleTransaction(setMoneyHash),
+      ]).then(()=>{
+        sendEmail(sendTransactionHash, handleTransactionHash);
+        return { text: 'Your funds will be received in your bank within one day.' };
+      });
+  
+      // After both transactions are successful, you can call a third function (if needed) with their results
+     
     }
 
     await delay(2000); // Delay before returning the fallback message
@@ -71,14 +206,15 @@ function SpeechChatbotApply({ setContent }) {
   const options = {
     botImageUrl: '/images/chatbotIcon_optimized.png',
     speechRecognition: false,
-    textToSpeech: true,
+    textToSpeech: false,
     inputBoxPlaceholder: 'What can I help you with?',
 
   };
 
-  return  <>
-  <style>
-    {`
+  return (
+    <>
+      <style>
+        {`
     @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css');
 
@@ -252,10 +388,11 @@ function SpeechChatbotApply({ setContent }) {
       margin-top: 50px;
     }
     `}
-  </style>
+      </style>
 
-  <ChatBotComponent options={options} handleMessage={handleMessage} />
-</>;
+      <ChatBotComponent options={options} handleMessage={handleMessage} />
+    </>
+  );
 }
 
 export default SpeechChatbotApply;

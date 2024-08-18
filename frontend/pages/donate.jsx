@@ -7,7 +7,7 @@ import TestingPage from '../components/TestingPage';
 
 function Home() {
   return (
-    <TestingPage />
+    <DonatePage />
   );
 }
 

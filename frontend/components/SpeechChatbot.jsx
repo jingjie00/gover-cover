@@ -75,7 +75,7 @@ function SpeechChatbot({ setContent }) {
   const options = {
     botImageUrl: '/images/chatbotIcon_optimized.png',
     speechRecognition: false,
-    textToSpeech: true,
+    textToSpeech: false,
     inputBoxPlaceholder: 'What can I help you with?',
   };
 
