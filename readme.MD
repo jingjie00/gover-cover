@@ -45,8 +45,17 @@ By addressing these challenges, **GoVer** contributes to several Sustainable Dev
 
 
 ## Smart Contracts, Address, and Example Transaction
+
+#### TESTNET
+- Transaction Hash: [**0x84d06c68092742b5a59070e60afc014d4577e9dc677116df293a36395bdecd7d**](https://explorer.aptoslabs.com/txn/0x84d06c68092742b5a59070e60afc014d4577e9dc677116df293a36395bdecd7d?network=testnet)
+- Message Hash (Apply): [**0x6b732d845e4685661b2f9d7fd28d935fe12003be50d7ab5afce9116d285cb7a6**](https://explorer.aptoslabs.com/txn/0x6b732d845e4685661b2f9d7fd28d935fe12003be50d7ab5afce9116d285cb7a6?network=testnet)
+- Message Hash (Sponsor): [**0x07254be5d92763d346ddbaf0cfdcbfd626c00853316d5ce53e4d0b426aa0df53**](https://explorer.aptoslabs.com/txn/0x07254be5d92763d346ddbaf0cfdcbfd626c00853316d5ce53e4d0b426aa0df53/payload?network=testnet)
+- Government Address: [**0xa21cdd92d7709bc02b8ef778de792e0cae2f7265d865204c4f50292365364034**](https://explorer.aptoslabs.com/object/0xa21cdd92d7709bc02b8ef778de792e0cae2f7265d865204c4f50292365364034?network=testnet)
+- Smart Contract: [**0x95f2511d231f2ef854467a101dd8d3aba8f6673407eb2fffec0da73ce5c8bd88**](https://explorer.aptoslabs.com/object/0x95f2511d231f2ef854467a101dd8d3aba8f6673407eb2fffec0da73ce5c8bd88?network=testnet)
+
+#### DEVNET
 - Transaction Hash: [**0x425e23802282cc1c42662caf094f210059869b5246ca31a84c54f09d83e512e2**](https://explorer.aptoslabs.com/txn/0x425e23802282cc1c42662caf094f210059869b5246ca31a84c54f09d83e512e2?network=devnet)
-- Message Hash (Apply): [**0x99b51777825acd711bbe0a203f6c4e5b0ac24dadd303763627adccba2279a83a**](https://explorer.aptoslabs.com/txn/{{mid}}?network=devnet)
+- Message Hash (Apply): [**0x99b51777825acd711bbe0a203f6c4e5b0ac24dadd303763627adccba2279a83a**](https://explorer.aptoslabs.com/txn/0x99b51777825acd711bbe0a203f6c4e5b0ac24dadd303763627adccba2279a83a?network=devnet)
 - Message Hash (Sponsor): [**0x38563d5b4123b5cb164b2b33f26c669fdd2024aff1e7b456bcd7c07350fc7948**](https://explorer.aptoslabs.com/txn/0x38563d5b4123b5cb164b2b33f26c669fdd2024aff1e7b456bcd7c07350fc7948/payload?network=devnet)
 - Government Address: [**0x762870eccdfad66e6a2121fde8488bb9d5a65e34edef5fadf829db2bd9168bfe**](https://explorer.aptoslabs.com/object/0x762870eccdfad66e6a2121fde8488bb9d5a65e34edef5fadf829db2bd9168bfe?network=devnet)
 - Smart Contract: [**0x242c55e5645f7266eb4dde738242ba24567e6dd6a084ea8be06fe7629b637f55**](https://explorer.aptoslabs.com/object/0x242c55e5645f7266eb4dde738242ba24567e6dd6a084ea8be06fe7629b637f55?network=devnet)
