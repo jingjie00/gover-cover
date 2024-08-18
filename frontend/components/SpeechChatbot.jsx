@@ -48,7 +48,7 @@ function SpeechChatbot({ setContent }) {
       }, 2000);
 
       await delay(1000); // Add a 2-second delay before returning
-      return { text: 'I have extracted your personal information. Please fill in your email and phone number.' };
+      return { text: 'I have extracted your personal information.' };
     }
     if (message.data.toLowerCase().includes('please proceed')) {
      // emailjs.init('nEOa7brxpEkuoZvpM');
