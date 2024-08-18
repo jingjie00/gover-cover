@@ -48,7 +48,6 @@ const PaymentButton = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Mock payment processing
-    sendEmail();
     dispatch(SettingActions.setLoading(true));
     setTimeout(() => {
 

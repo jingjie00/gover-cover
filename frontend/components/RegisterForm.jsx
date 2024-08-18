@@ -11,8 +11,8 @@ const RegisterForm = () => {
     icNumber: '010625-78-9012',
     dob: moment('2001-06-25'), // DatePicker requires moment for default date
     address: '33, Jalan Desa 7/13a, Bandar Country Homes, 48000 Rawang',
-    phoneNumber: '',
-    email: '',
+    phoneNumber: '0122799255',
+    email: 'jumpmasters@gmail.com',
   };
 
   // Layout styling using Tailwind CSS
