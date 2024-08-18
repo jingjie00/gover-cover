@@ -48,8 +48,8 @@ By addressing these challenges, **GoVer** contributes to several Sustainable Dev
 
 #### TESTNET
 - Transaction Hash: [**0x84d06c68092742b5a59070e60afc014d4577e9dc677116df293a36395bdecd7d**](https://explorer.aptoslabs.com/txn/0x84d06c68092742b5a59070e60afc014d4577e9dc677116df293a36395bdecd7d?network=testnet)
-- Message Hash (Apply): [**0x6b732d845e4685661b2f9d7fd28d935fe12003be50d7ab5afce9116d285cb7a6**](https://explorer.aptoslabs.com/txn/0x6b732d845e4685661b2f9d7fd28d935fe12003be50d7ab5afce9116d285cb7a6?network=testnet)
-- Message Hash (Sponsor): [**0x07254be5d92763d346ddbaf0cfdcbfd626c00853316d5ce53e4d0b426aa0df53**](https://explorer.aptoslabs.com/txn/0x07254be5d92763d346ddbaf0cfdcbfd626c00853316d5ce53e4d0b426aa0df53/payload?network=testnet)
+- Message Hash (Apply): [**0x30430c22f576f2d04927568069aa47f9191c98094e389e6301d6d3090315eb4d**](https://explorer.aptoslabs.com/txn/0x30430c22f576f2d04927568069aa47f9191c98094e389e6301d6d3090315eb4d?network=testnet)
+- Message Hash (Sponsor): [**0x8e66fb72d6b0104a903254dcd994642832056e989154db24aafc60fc8be48487**](https://explorer.aptoslabs.com/txn/0x8e66fb72d6b0104a903254dcd994642832056e989154db24aafc60fc8be48487/payload?network=testnet)
 - Government Address: [**0xa21cdd92d7709bc02b8ef778de792e0cae2f7265d865204c4f50292365364034**](https://explorer.aptoslabs.com/object/0xa21cdd92d7709bc02b8ef778de792e0cae2f7265d865204c4f50292365364034?network=testnet)
 - Smart Contract: [**0x95f2511d231f2ef854467a101dd8d3aba8f6673407eb2fffec0da73ce5c8bd88**](https://explorer.aptoslabs.com/object/0x95f2511d231f2ef854467a101dd8d3aba8f6673407eb2fffec0da73ce5c8bd88?network=testnet)
 

@@ -22,7 +22,7 @@ async def main():
     
     payload = {
         "type": "entry_function_payload",
-        "function": "0x242c55e5645f7266eb4dde738242ba24567e6dd6a084ea8be06fe7629b637f55::message::set_message",
+        "function": "0x95f2511d231f2ef854467a101dd8d3aba8f6673407eb2fffec0da73ce5c8bd88::message::set_message",
         "type_arguments": [],  # No type arguments needed unless required by the function
         "arguments": ['{"Transfer to": "Jason","Malaysian Identity Card Hash": "bab2455a57524929c19827240dfec07f","Program": "Student Assistantship","Collab": "Apple Pencil Free Gift from Urban Republic"}'],  # Arguments passed to the function
     }

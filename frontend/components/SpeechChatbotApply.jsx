@@ -10,20 +10,20 @@ import { AptosClient, AptosAccount, FaucetClient } from 'aptos';
 import RegisterForm from './RegisterForm';
 import FileUploadComponent from './FileUploadComponent';
 
-const NODE_URL = 'https://fullnode.devnet.aptoslabs.com';
+const NODE_URL = 'https://fullnode.testnet.aptoslabs.com';
 
 const aptosClient = new AptosClient(NODE_URL);
 
 const sendTransaction = async (setTransactionHash) => {
   try {
     // Load the government account using its private key
-    const governmentPrivateKey = '998adc8b753d91dff7df63674e1edf1046fd5a13f1c0e044770cd55cd8672533'; // Replace with your actual private key
+    const governmentPrivateKey = '9fc0923b3240af747b130c742dbb308ac9abbe7464a2afe955f2daefe26261d6'; // Replace with your actual private key
     const government = new AptosAccount(Buffer.from(governmentPrivateKey, 'hex'));
 
     // Define the transaction payload
     const payload = {
       type: 'entry_function_payload',
-      function: '0x242c55e5645f7266eb4dde738242ba24567e6dd6a084ea8be06fe7629b637f55::message::set_message',
+      function: '0x95f2511d231f2ef854467a101dd8d3aba8f6673407eb2fffec0da73ce5c8bd88::message::set_message',
       type_arguments: [], // No type arguments needed unless required by the function
       arguments: [
         '{"Transfer to": "Soh Huang Siah","Malaysian Identity Card Hash": "bab2455a57524929c19827240dfec07f","Program": "Online Course Incentive","Collab": "Apple Pencil Free Gift from Urban Republic", "Amount": "RM400.00"}',
@@ -54,8 +54,8 @@ const sendTransaction = async (setTransactionHash) => {
 };
 
 const handleTransaction = async (setMoneyHash) => {
-  const NODE_URL = 'https://fullnode.devnet.aptoslabs.com';
-  const FAUCET_URL = 'https://faucet.devnet.aptoslabs.com';
+  const NODE_URL = 'https://fullnode.testnet.aptoslabs.com';
+  const FAUCET_URL = 'https://faucet.testnet.aptoslabs.com';
 
   const amount = 400; // Amount to transfer
 

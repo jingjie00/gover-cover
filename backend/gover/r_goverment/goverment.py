@@ -74,15 +74,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-# === Addresses ===
-# Goverment: 0x762870eccdfad66e6a2121fde8488bb9d5a65e34edef5fadf829db2bd9168bfe
-# Bank 0x651ab25d56f742c2783473945d5a4465d38cc41db9cb2c7108f9aea50b64d544
-
-# === Private Keys ===
-# Goverment: 0x998adc8b753d91dff7df63674e1edf1046fd5a13f1c0e044770cd55cd8672533
-# Bank: 0xb162321c068a04905466a2cfa450e3dfd27e3dd68d7bb2ed90255a3a59e3d291
-
-# === Public Keys ===
-# Goverment: 0x955f9e66f98a6893fa45c6710f97e14fd495801568fd2885752e2bc86923aa76
-# Bank: 0xc7307c48468c3389f111a09be4a064e65abd0d35a045d1234e5097c96df583a7
